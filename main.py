@@ -27,7 +27,7 @@ async def on_message(message):
         msg = 'Stopping...'
         msg.format(message)
         await client.send_message(message.channel, msg)
-        exit(0)
+        exit()
 
 @client.event
 async def on_ready():
