@@ -19,6 +19,10 @@ async def on_message(message):
         msg = 'Hi {0.author.mention}'.format(message)
         await client.send_message(message.channel, msg)
 
+    if message.content.startswith('!meow'):
+        msg = 'Meow! {0.author.mention}'.format(message)
+        await client.send_message(message.channel, msg)
+
     if message.content.startswith('!stop'):
         msg = 'Stopping...'
         msg.format(message)
