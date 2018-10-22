@@ -1,5 +1,8 @@
-# Work with Python 3.6
+
 import discord
+
+import asyncio
+import time
 
 TOKEN = 'NTAzMTcyNDY3NjI4NTcyNjcy.DqynmA.BYrf_t4wtQV8emw0UoTS_hQhj1g'
 
@@ -27,7 +30,7 @@ async def on_message(message):
         msg = 'Stopping...'
         msg.format(message)
         await client.send_message(message.channel, msg)
-        exit()
+        client.logout()
 
 @client.event
 async def on_ready():
