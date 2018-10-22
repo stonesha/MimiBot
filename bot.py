@@ -1,16 +1,17 @@
 
 import discord
-from discord import opus
+import sys
+
 
 import asyncio
 import time
 
-TOKEN = 'NTAzMTcyNDY3NjI4NTcyNjcy.DqynmA.BYrf_t4wtQV8emw0UoTS_hQhj1g'
-OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
+from bot import opus_loader
 
-discord.opus.load_opus(OPUS_LIBS)
+TOKEN = 'NTAzMTcyNDY3NjI4NTcyNjcy.DqynmA.BYrf_t4wtQV8emw0UoTS_hQhj1g'
 
 client = discord.Client()
+load_opus_lib()
 
 @client.event
 async def on_message(message):
