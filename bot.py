@@ -6,7 +6,7 @@ import sys
 import asyncio
 import time
 
-from bot import opus_loader
+from opus_loader import load_opus_lib
 
 TOKEN = 'NTAzMTcyNDY3NjI4NTcyNjcy.DqynmA.BYrf_t4wtQV8emw0UoTS_hQhj1g'
 
