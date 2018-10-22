@@ -1,10 +1,14 @@
 
 import discord
+from discord import opus
 
 import asyncio
 import time
 
 TOKEN = 'NTAzMTcyNDY3NjI4NTcyNjcy.DqynmA.BYrf_t4wtQV8emw0UoTS_hQhj1g'
+OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
+
+discord.opus.load_opus(OPUS_LIBS)
 
 client = discord.Client()
 
@@ -30,7 +34,8 @@ async def on_message(message):
         msg = 'Stopping...'
         msg.format(message)
         await client.send_message(message.channel, msg)
-        client.logout()
+        await client.logout()
+        print("Stopping program")
 
 @client.event
 async def on_ready():
