@@ -1,7 +1,7 @@
 
 import discord
 import sys
-
+import youtube_dl
 
 import asyncio
 import time
@@ -37,6 +37,20 @@ async def on_message(message):
         await client.send_message(message.channel, msg)
         await client.logout()
         print("Stopping program")
+
+    if message.content.startswith('!jockbutt'):
+        msg = ':flag_us: playing *American Jock Butt* :flag_us: '
+        msg.format(message)
+        await client.send_message(message.channel, msg)
+        author = message.author
+        voice_channel = author.voice_channel
+        voice = await client.join_voice_channel(voice_channel)
+        player = await voice.create_ffmpeg_player('American Jock Butt.mp3')
+        player.start()
+        if player.is_done() == True:
+            player.stop()
+            client.disconnect
+
 
 @client.event
 async def on_ready():
