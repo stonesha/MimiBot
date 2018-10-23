@@ -1,10 +1,11 @@
 
-import discord
-import sys
-import youtube_dl
-
 import asyncio
 import time
+import sys
+import os
+
+import discord
+import youtube_dl
 
 from opus_loader import load_opus_lib
 
@@ -45,8 +46,9 @@ async def on_message(message):
         author = message.author
         voice_channel = author.voice_channel
         voice = await client.join_voice_channel(voice_channel)
-        player = await voice.create_ffmpeg_player('American Jock Butt.mp3')
+        player = await voice.create_ffmpeg_player('/audiocache/American_Jock_Butt.mp3')
         player.start()
+        time.sleep(15)
         if player.is_done() == True:
             player.stop()
             client.disconnect
