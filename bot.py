@@ -11,6 +11,7 @@ from opus_loader import load_opus_lib
 import constants
 
 TOKEN = 'NTAzMTcyNDY3NjI4NTcyNjcy.DqynmA.BYrf_t4wtQV8emw0UoTS_hQhj1g'
+#bot id: 
 
 client = discord.Client()
 load_opus_lib()
@@ -60,7 +61,7 @@ async def on_message(message):
         player.start()
         time.sleep(13)
         player.stop()
-        await client.disconnect()
+        await client.disconnect() # dont work
 
 
 @client.event
