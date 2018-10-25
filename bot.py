@@ -19,12 +19,12 @@ load_opus_lib()
 
 @client.event
 async def on_message(message):
-    # we do not want the bot to reply to itself
-    if message.author == client.user:
-        return
-
     author = message.author
     voice_channel = author.voice_channel   
+    
+    # we do not want the bot to reply to itself
+    if author == client.user:
+        return
 
     if message.content.startswith('!hello'):
         msg = 'Hello {0.author.mention}'.format(message)
