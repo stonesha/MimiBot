@@ -45,24 +45,25 @@ async def on_message(message):
         await client.logout()
         print("Stopping program")
     
-    '''if message.content.startswith('!join'):
+    if message.content.startswith('!join'):
         await voice
         msg = 'Joining Voice Lobby'
         msg.format(message)
         await client.send_message(message.channel, msg)
-        print("Connected to Voice Channel")'''
+        print("Connected to Voice Channel")
+
+    if message.content.startswith('!disconnect'):
+
+        msg = 'Disconnecting from Voice Lobby'
+        msg.format(message)
+        await client.send_message(message.channel, msg)
+        print("Disconnected form Voice Channel")
+        await voice_channel.disconnect()
 
     if message.content.startswith('!jockbutt'):
         msg = ':flag_us: playing *American Jock Butt* :flag_us: '
         msg.format(message)
         await client.send_message(message.channel, msg)
-        voice = await client.join_voice_channel(voice_channel)
-        player = await voice.create_ytdl_player("https://www.dropbox.com/s/41cui25bgw3iwbw/American%20Jock%20Butt.mp3")
-        player.start()
-        time.sleep(13)
-        player.stop()
-        await client.disconnect() # dont work
-
 
 @client.event
 async def on_ready():
